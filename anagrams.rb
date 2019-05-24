@@ -30,10 +30,10 @@ end
 
 def anagram_5?(str_1, str_2)
   hash_1 = Hash.new(0)
+
   str_1.each_char { |char| hash_1[char] += 1 }
   str_2.each_char { |char| hash_1[char] -= 1 }
-  p hash_1.values
-  hash_1.values.length == 1
+  hash_1.all? { |k, v| v == 0 }
 end
 
 p anagram_5?("gizmo", "sally")    #=> false
